@@ -40,27 +40,9 @@ vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
 
 # Audio
-vendor/bin/hw/android.hardware.audio@2.0-service
-vendor/etc/init/android.hardware.audio@2.0-service.rc
-vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
-vendor/lib/hw/android.hardware.audio@2.0-impl.so
-vendor/lib/hw/audio.primary.default.so
-vendor/lib/hw/audio.primary.msm8909.so
-vendor/lib/hw/audio.r_submix.default.so
-vendor/lib/hw/audio.usb.default.so
-vendor/lib/libalsautils.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libperipheral_client.so
-vendor/lib/libtinycompress_vendor.so
-
-# Audio (FX modules)
-vendor/lib/soundfx/libqcbassboost.so
-vendor/lib/soundfx/libqcompostprocbundle.so
-vendor/lib/soundfx/libqcomvisualizer.so
-vendor/lib/soundfx/libqcomvoiceprocessing.so
-vendor/lib/soundfx/libqcreverb.so
-vendor/lib/soundfx/libqcvirt.so
 
 # Audio configs
 vendor/etc/audio/audio_policy_configuration.xml
@@ -85,18 +67,9 @@ vendor/etc/sound_trigger_mixer_paths_wcd9326.xml
 vendor/etc/sound_trigger_platform_info.xml
 vendor/etc/usb_audio_policy_configuration.xml
 
-# Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib/libbt-vendor.so
-vendor/lib/libbtnv.so
-
 # Bluetooth (A2DP)
 lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
-
-# Broadcast radio
-vendor/lib/hw/android.hardware.broadcastradio@1.0-impl.so
 
 # Camera
 vendor/bin/mm-qcamera-daemon
@@ -385,18 +358,11 @@ vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmjpeg_interface.so
 vendor/lib/liboemcamera.so
 vendor/lib/liboptizoom.so
-vendor/lib/libqdMetaData.so
 vendor/lib/libqomx_core.so
-vendor/lib/libqservice.so
 vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
 vendor/lib/vendor.qti.hardware.camera.device@1.0_vendor.so
 
-
-# CDSP
-lib/libfastcvopt.so
-vendor/lib/libcdsprpc.so
-vendor/lib/libfastcvopt.so
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
@@ -449,14 +415,7 @@ vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
-vendor/lib/libwpa_client.so
 vendor/lib/vendor.qti.hardware.data.latency@1.0_vendor.so
-
-# Configstore
-vendor/bin/hw/android.hardware.configstore@1.0-service
-vendor/etc/init/android.hardware.configstore@1.0-service.rc
-vendor/lib/libhwminijail.so
-vendor/lib/libminijail_vendor.so
 
 # Display
 lib/egl/libGLES_android.so
@@ -467,33 +426,16 @@ lib/vendor.display.config@1.1.so
 lib/vendor.display.config@1.2.so
 lib/vendor.display.postproc@1.0.so
 lib/vendor.qti.hardware.qdutils_disp@1.0.so
-vendor/bin/hw/android.hardware.graphics.allocator@2.0-service
-vendor/bin/hw/android.hardware.graphics.composer@2.1-service
-vendor/bin/hw/android.hardware.memtrack@1.0-service
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/etc/init/android.hardware.graphics.allocator@2.0-service.rc
-vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
-vendor/etc/init/android.hardware.memtrack@1.0-service.rc
-vendor/etc/init/vendor.display.color@1.0-service.rc
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/hw/android.hardware.graphics.allocator@2.0-impl.so
-vendor/lib/hw/android.hardware.graphics.composer@2.1-impl.so
-vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so
-vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
-vendor/lib/hw/gralloc.default.so
-vendor/lib/hw/gralloc.msm8909.so
-vendor/lib/hw/hwcomposer.msm8909.so
-vendor/lib/hw/memtrack.msm8909.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libdrmutils.so
 vendor/lib/libgpu_tonemapper.so
 vendor/lib/libgrallocutils.so
 vendor/lib/libgsl.so
-vendor/lib/libqdutils.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -501,7 +443,6 @@ vendor/lib/libsdm-disp-vndapis.so
 vendor/lib/libsdmcore.so
 vendor/lib/libsdmextension.so
 vendor/lib/libsdmutils.so
-vendor/lib/libtinyxml2_1.so
 vendor/lib/vendor.display.color@1.0_vendor.so
 vendor/lib/vendor.display.color@1.1_vendor.so
 vendor/lib/vendor.display.config@1.0_vendor.so
@@ -536,13 +477,6 @@ vendor/lib/com.qualcomm.qti.dpm.api@1.0_vendor.so
 vendor/lib/libdpmqmihal.so
 vendor/lib/libqmi_client_helper.so
 
-# DRM
-vendor/bin/hw/android.hardware.drm@1.0-service
-vendor/etc/init/android.hardware.drm@1.0-service.rc
-vendor/lib/hw/android.hardware.drm@1.0-impl.so
-vendor/lib/mediacas/libclearkeycasplugin.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
-
 # DRM (Qualcomm Secure Execution Environment)
 vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
@@ -565,11 +499,6 @@ vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
-
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/gatekeeper.msm8909.so
 
 # GNSS
 lib/vendor.qti.gnss@1.0.so
@@ -617,69 +546,8 @@ vendor/etc/lowi.conf
 vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
 
-# Health
-vendor/bin/hw/android.hardware.health@1.0-service
-vendor/bin/hvdcp_opti
-vendor/etc/init/android.hardware.health@1.0-service.rc
-vendor/lib/hw/android.hardware.health@1.0-impl.so
-
-# Keymaster
-lib/hw/keystore.default.so
-lib/libsoftkeymaster.so
-vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
-vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
-vendor/lib/hw/keystore.msm8909.so
-
-# Light
-vendor/bin/hw/android.hardware.light@2.0-service
-vendor/etc/init/android.hardware.light@2.0-service.rc
-vendor/lib/hw/android.hardware.light@2.0-impl.so
-vendor/lib/hw/lights.msm8909.so
-
-# Local time
-vendor/lib/hw/local_time.default.so
-
 # Media
-vendor/bin/hw/android.hardware.media.omx@1.0-service
-vendor/etc/init/android.hardware.media.omx@1.0-service.rc
-vendor/lib/libMpeg4SwEncoder.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAacEnc.so
-vendor/lib/libOmxAlacDecSw.so
-vendor/lib/libOmxAmrEnc.so
-vendor/lib/libOmxApeDecSw.so
-vendor/lib/libOmxCore.so
-vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxEvrcEnc.so
-vendor/lib/libOmxG711Enc.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxQcelp13Enc.so
-vendor/lib/libOmxSwVdec.so
-vendor/lib/libOmxSwVencMpeg4.so
-vendor/lib/libOmxVdec.so
-vendor/lib/libOmxVenc.so
-vendor/lib/libOmxVpp.so
-vendor/lib/libc2dcolorconvert.so
-vendor/lib/libhypv_intercept.so
-vendor/lib/libmediacodecservice.so
-vendor/lib/libmm-omxcore.so
-vendor/lib/libstagefrighthw.so
-vendor/lib/libswvdec.so
-vendor/lib/libvpplibrary.so
 vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
-
-# Media configs
-vendor/etc/media_codecs.xml
-vendor/etc/media_codecs_google_audio.xml
-vendor/etc/media_codecs_google_telephony.xml
-vendor/etc/media_codecs_google_video.xml
-vendor/etc/media_codecs_google_video_le.xml
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_codecs_vendor_audio.xml
-vendor/etc/media_profiles.xml
-vendor/etc/media_profiles_V1_0.xml
-vendor/etc/media_profiles_vendor.xml
 
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
@@ -696,31 +564,18 @@ vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
 
-# Power
-vendor/bin/hw/android.hardware.power@1.0-service
-vendor/etc/init/android.hardware.power@1.0-service.rc
-vendor/lib/hw/android.hardware.power@1.0-impl.so
-vendor/lib/hw/power.default.so
-vendor/lib/hw/power.qcom.so
-
 # QVR
 vendor/etc/qvr/qvrservice_6dof_config.xml
 vendor/etc/qvr/qvrservice_config.txt
 
 # Radio
-vendor/bin/hw/rild
-vendor/bin/netmgrd
-vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
-vendor/etc/init/rild.rc
 vendor/lib/libconfigdb.so
 vendor/lib/libnetmgr.so
 vendor/lib/liboemaids_vendor.so
 vendor/lib/libqcmaputils.so
-vendor/lib/librmnetctl.so
-vendor/lib/libxml.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.lpa@1.0_vendor.so
@@ -759,7 +614,6 @@ vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so
 
 # RenderScript
-vendor/lib/hw/android.hardware.renderscript@1.0-impl.so
 vendor/lib/libCB.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/librs_adreno.so
@@ -772,10 +626,6 @@ vendor/lib/hw/vendor.qti.esepowermanager@1.0-impl.so
 vendor/lib/vendor.qti.esepowermanager@1.0_vendor.so
 
 # Sensors
-vendor/bin/hw/android.hardware.sensors@1.0-service
-vendor/etc/init/android.hardware.sensors@1.0-service.rc
-vendor/lib/hw/android.hardware.sensors@1.0-impl.so
-vendor/lib/hw/sensors.default.so
 vendor/lib/sensors.native.so
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 
@@ -783,32 +633,19 @@ vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/etc/sensors/hals.conf
 
 # Soundtrigger
-vendor/lib/hw/android.hardware.soundtrigger@2.0-impl.so
-vendor/lib/hw/sound_trigger.primary.msm8909.so
 vendor/lib/vendor.qti.voiceprint@1.0.so
 
 # Thermal (Qualcomm)
-vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so
-vendor/lib/libthermalioctl.so
 vendor/lib/vendor.qti.hardware.limits@1.0_vendor.so
 
 # Thermal configs
 vendor/etc/thermal-engine.conf
 
 # Time services
-vendor/bin/time_daemon
-vendor/lib/libtime_genoff.so
+#vendor/bin/time_daemon
+#vendor/lib/libtime_genoff.so
 
 # Touch (HBTP)
-vendor/bin/hbtp_daemon
-vendor/etc/hbtp/hbtpcfg.dat
-vendor/etc/hbtp/hbtpcfg_8917.dat
-vendor/etc/hbtp/qtc800s_dsp.bin
-vendor/lib/libfastrpc_utf_stub.so
-vendor/lib/libhbtpclient.so
-vendor/lib/libhbtpdsp.so
-vendor/lib/libhbtpfrmwk.so
 vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0-service.so
 vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0-service.so
@@ -816,33 +653,12 @@ vendor/lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
 vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0_vendor.so
 
-
-# Vibrator
-vendor/bin/hw/android.hardware.vibrator@1.0-service
-vendor/etc/init/android.hardware.vibrator@1.0-service.rc
-vendor/lib/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib/hw/vibrator.default.so
-
 # Wi-Fi
-vendor/bin/hw/android.hardware.wifi@1.0-service
-vendor/bin/hw/wpa_supplicant
-vendor/bin/cnss-daemon
-vendor/bin/wcnss_service
-vendor/bin/wpa_cli
-vendor/etc/init/android.hardware.wifi@1.0-service.rc
-vendor/lib/libkeystore-engine-wifi-hidl.so
-vendor/lib/libkeystore-wifi-hidl.so
-vendor/lib/libwifi-hal-qcom.so
-vendor/lib/libwifi-hal.so
 vendor/lib/vendor.qti.hardware.wifi.supplicant@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.wifi.supplicant@1.1_vendor.so
 
 # Wi-Fi configs
 vendor/etc/wifi/WCNSS_qcom_cfg.ini
-vendor/etc/wifi/fstman.ini
-vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/wpa_supplicant.conf
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Wi-Fi Display
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
@@ -922,7 +738,6 @@ vendor/etc/data/netmgr_config.xml
 vendor/etc/data/qmi_config.xml
 vendor/etc/drc/drc_cfg_5.1.txt
 vendor/etc/drc/drc_cfg_AZ.txt
-vendor/etc/init/vndservicemanager.rc
 vendor/etc/mmi/layout/footer.xml
 vendor/etc/mmi/layout/footer_fail.xml
 vendor/etc/mmi/layout/header.xml
@@ -1005,12 +820,9 @@ vendor/etc/surround_sound_3mic/surround_sound_rec_AZ.cfg
 vendor/etc/audio_policy.conf
 vendor/etc/cacert_location.pem
 vendor/etc/calmodule.cfg
-vendor/etc/fstab.qcom
 vendor/etc/ftm_test_config
-vendor/etc/mkshrc
 vendor/etc/public.libraries.txt
 vendor/etc/qmi_fw.conf
-vendor/etc/sec_config
 vendor/etc/xtra_root_cert.pem
 vendor/firmware/a225p5_pm4.fw
 vendor/firmware/a530v1_pfp.fw
@@ -1087,10 +899,6 @@ vendor/lib/libhdcp2p2prov.so
 vendor/lib/libhdr_tm.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
-vendor/lib/libjson.so
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterutils.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libloc2jnibridge.so
 vendor/lib/libloc_ds_api.so
@@ -1154,7 +962,6 @@ vendor/lib/libsubsystem_control.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libsurround_proc.so
 vendor/lib/libsystem_health_mon.so
-vendor/lib/libtinyxml.so
 vendor/lib/libvideoutils.so
 vendor/lib/libvpptestutils.so
 vendor/lib/libvqzip.so
