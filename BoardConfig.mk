@@ -17,8 +17,8 @@ DEVICE_PATH := device/msft/saana
 #BOARD_SUPPRESS_SECURE_ERASE := true
 
 
-
-
+TARGET_USES_64_BIT_BINDER := true
+#TARGET_USES_VNDK := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -41,11 +41,11 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.memcg=false earlyprintk
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.memcg=false earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_CONFIG := msm8909_e1m_defconfig
+TARGET_KERNEL_CONFIG := msm8909-perf_defconfig
 TARGET_KERNEL_SOURCE := kernel/msft/saana
 
 # Kernel - prebuilt
@@ -64,19 +64,22 @@ TARGET_HW_DISK_ENCRYPTION := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Partitions
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
-BOARD_BOOTIMAGE_PARTITION_SIZE := 9838592
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16691200
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16793600
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16793600
 BOARD_VENDORIMAGE_PARTITION_SIZE := 524288000
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1288491008
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1659305984
 BOARD_CACHEIMAGE_PARTITION_SIZE := 115343360
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_OEMIMAGE_PARTITION_SIZE := 268435456
 
-
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -112,7 +115,7 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2018-07-05
+VENDOR_SECURITY_PATCH := 2018-08-05
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml

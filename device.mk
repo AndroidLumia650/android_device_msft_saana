@@ -6,7 +6,7 @@
 
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 27
-PRODUCT_FULL_TREBLE_OVERRIDE := false
+#PRODUCT_FULL_TREBLE_OVERRIDE := false
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -19,8 +19,14 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 # Product characteristics
 PRODUCT_CHARACTERISTICS := default
 
+
+# For config.fs
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # Rootdir
 PRODUCT_PACKAGES += \
+    init.class_late.sh \
     init.class_main.sh \
     init.crda.sh \
     init.mdm.sh \
@@ -28,6 +34,7 @@ PRODUCT_PACKAGES += \
     init.qcom.coex.sh \
     init.qcom.crashdata.sh \
     init.qcom.debug-sdm660.sh \
+    init.qcom.debug-sdm710.sh \
     init.qcom.debug.sh \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
@@ -35,12 +42,19 @@ PRODUCT_PACKAGES += \
     init.qcom.sdio.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.syspart_fixup.sh \
+    init.qcom.ssr.sh \
     init.qcom.usb.sh \
-    init.qcom.wifi.sh \
+    init.qti.can.sh \
+    init.qti.charger.sh \
+    init.qti.debug-msmnile-apps.sh \
+    init.qti.debug-msmnile-modem.sh \
+    init.qti.debug-msmnile-slpi.sh \
+    init.qti.debug-msmnile.sh \
+    init.qti.debug-talos.sh \
+    init.qti.debug-trinket.sh \
     init.qti.fm.sh \
     init.qti.ims.sh \
-    init.qti.vendor.testscripts.sh \
+    init.qti.manifest_sku.sh \
     qca6234-service.sh \
 
 PRODUCT_PACKAGES += \
@@ -52,6 +66,11 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     init.recovery.qcom.rc \
+    ueventd.qcom.rc
+
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # Audio
 PRODUCT_PACKAGES += \

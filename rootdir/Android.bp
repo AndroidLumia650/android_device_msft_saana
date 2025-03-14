@@ -6,6 +6,12 @@
 
 // Init scripts
 sh_binary {
+    name: "init.class_late.sh",
+    src: "bin/init.class_late.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "init.class_main.sh",
     src: "bin/init.class_main.sh",
     vendor: true,
@@ -44,6 +50,12 @@ sh_binary {
 sh_binary {
     name: "init.qcom.debug-sdm660.sh",
     src: "bin/init.qcom.debug-sdm660.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qcom.debug-sdm710.sh",
+    src: "bin/init.qcom.debug-sdm710.sh",
     vendor: true,
 }
 
@@ -90,8 +102,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qcom.syspart_fixup.sh",
-    src: "bin/init.qcom.syspart_fixup.sh",
+    name: "init.qcom.ssr.sh",
+    src: "bin/init.qcom.ssr.sh",
     vendor: true,
 }
 
@@ -102,8 +114,50 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qcom.wifi.sh",
-    src: "bin/init.qcom.wifi.sh",
+    name: "init.qti.can.sh",
+    src: "bin/init.qti.can.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.charger.sh",
+    src: "bin/init.qti.charger.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-msmnile-apps.sh",
+    src: "bin/init.qti.debug-msmnile-apps.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-msmnile-modem.sh",
+    src: "bin/init.qti.debug-msmnile-modem.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-msmnile-slpi.sh",
+    src: "bin/init.qti.debug-msmnile-slpi.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-msmnile.sh",
+    src: "bin/init.qti.debug-msmnile.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-talos.sh",
+    src: "bin/init.qti.debug-talos.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.debug-trinket.sh",
+    src: "bin/init.qti.debug-trinket.sh",
     vendor: true,
 }
 
@@ -120,8 +174,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qti.vendor.testscripts.sh",
-    src: "bin/init.qti.vendor.testscripts.sh",
+    name: "init.qti.manifest_sku.sh",
+    src: "bin/init.qti.manifest_sku.sh",
     vendor: true,
 }
 
