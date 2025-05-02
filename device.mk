@@ -13,8 +13,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# Overlays
-PRODUCT_ENFORCE_RRO_TARGETS := *
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
 # Product characteristics
 PRODUCT_CHARACTERISTICS := default
@@ -68,14 +69,37 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
 
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_ROOT)/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+
+
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.service \
+    audio.a2dp.default \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler \
+    tinymix
+
+PRODUCT_PACKAGES += \
+    audio.primary.msm8909 \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libaacwrapper \
+    libvolumelistener
+
+PRODUCT_PACKAGES += \
     android.hardware.audio@4.0 \
     android.hardware.audio@4.0-impl \
     android.hardware.audio.common@4.0 \
@@ -84,15 +108,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0 \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.soundtrigger@2.0-impl \
-    audio.primary.msm8909 \
-    audio.r_submix.default \
-    audio.usb.default \
-    libaacwrapper \
-    libaudio-resampler \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libvolumelistener
 
 # Audio configuration files
 PRODUCT_COPY_FILES += \
@@ -120,42 +135,44 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0.vendor \
+    copybit.msm8909 \
+    gralloc.msm8909 \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1 \
-    gralloc.msm8909
-
-PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
-    hwcomposer.msm8909
-
-PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0.vendor \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-service \
+    hwcomposer.msm8909 \
+    libgenlock \
+    memtrack.msm8909 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    memtrack.msm8909
 
 PRODUCT_PACKAGES += \
     libdisplayconfig \
     liboverlay \
-    libgenlock \
-    libqdutils \
-    libqdMetaData \
-    libqdMetaData.system \
     libtinyxml \
+    libxml2 \
     vendor.display.config@1.0.vendor
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl \
+    android.hardware.renderscript@1.0-service
 
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
+    android.hardware.drm@1.2-service.clearkey \
     android.hardware.drm@1.0.vendor
 
 # FM radio
 #PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmjni
+    #FMRadio \
+    #libfmjni
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -164,7 +181,11 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0-service
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
+
+PRODUCT_PACKAGES += \
+    gps.msm8909
 
 # Health
 PRODUCT_PACKAGES += \
@@ -223,19 +244,19 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
 
 # OMX
-#PRODUCT_PACKAGES += \
-#    libc2dcolorconvert \
-#    libmm-omxcore \
-#    libOmxAacEnc \
-#    libOmxAmrEnc \
-#    libOmxCore \
-#    libOmxEvrcEnc \
-#    libOmxG711Enc \
-#    libOmxQcelp13Enc \
-#    libOmxVdec \
-#    libOmxVenc \
-#    libOmxSwVencHevc \
-#    libstagefrighthw
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxSwVencHevc \
+    libstagefrighthw
 
 # Perf
 PRODUCT_PACKAGES += \
@@ -264,6 +285,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+# Configstore
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.1-service
+
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
@@ -272,6 +297,14 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+
+# Compat symbols
+PRODUCT_PACKAGES += \
+    libshim_cutils
+
+# Compatibility
+PRODUCT_PACKAGES += \
+    libboringssl-compat
 
 # Trust HAL
 PRODUCT_PACKAGES += \

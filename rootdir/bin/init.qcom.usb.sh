@@ -73,7 +73,7 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 		    *)
 	            case "$target" in
 	              "msm8909")
-		          setprop persist.vendor.usb.config diag,serial_smd,rmnet_qti_bam,adb
+		          setprop persist.vendor.usb.config mtp,adb
 		      ;;
 	              "msm8937")
 			    if [ -d /config/usb_gadget ]; then

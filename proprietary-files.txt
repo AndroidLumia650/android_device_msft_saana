@@ -40,8 +40,8 @@ vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 #vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 
 # ANT
-lib/com.qualcomm.qti.ant@1.0.so
-vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
+#lib/com.qualcomm.qti.ant@1.0.so
+#vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Audio
 #vendor/bin/hw/android.hardware.audio@2.0-service
@@ -95,28 +95,34 @@ vendor/etc/usb_audio_policy_configuration.xml
 #vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 #vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 #vendor/lib/libbt-vendor.so
-#vendor/lib/libbtnv.so
+vendor/lib/libbtnv.so
 
 # Bluetooth (A2DP)
 lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 
 # Camera
-#lib/vendor.qti.hardware.camera.device@1.0.so
-#lib/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
-#lib/vendor.qti.hardware.scve.objecttracker@1.0.so
-#lib/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
-#lib/vendor.qti.hardware.scve.panorama@1.0.so
-#lib/vendor.qti.hardware.seccam@1.0.so
-#vendor/bin/hw/android.hardware.camera.provider@2.4-service
 vendor/bin/mm-qcamera-daemon
-#vendor/etc/init/android.hardware.camera.provider@2.4-service.rc
-#vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
-#vendor/lib/hw/camera.msm8909.so
-#vendor/lib/camera.device@1.0-impl.so
-#vendor/lib/camera.device@3.2-impl.so
-#vendor/lib/camera.device@3.3-impl.so
-#vendor/lib/camera.device@3.4-external-impl.so
-#vendor/lib/camera.device@3.4-impl.so
+vendor/lib/libmmjpeg_interface.so
+vendor/lib/liboemcamera.so
+vendor/lib/liboptizoom.so
+vendor/lib/libqomx_core.so
+vendor/lib/libubifocus.so
+vendor/lib/libmmcamera2_c2d_module.so
+vendor/lib/libmmcamera2_cpp_module.so
+vendor/lib/libmmcamera2_frame_algorithm.so
+vendor/lib/libmmcamera2_iface_modules.so
+vendor/lib/libmmcamera2_imglib_modules.so
+vendor/lib/libmmcamera2_is.so
+vendor/lib/libmmcamera2_isp_modules.so
+vendor/lib/libmmcamera2_pproc_modules.so
+vendor/lib/libmmcamera2_q3a_core.so
+vendor/lib/libmmcamera2_sensor_modules.so
+vendor/lib/libmmcamera2_stats_algorithm.so
+vendor/lib/libmmcamera2_stats_modules.so
+vendor/lib/libmmcamera2_vpe_module.so
+vendor/lib/libmmcamera2_wnr_module.so
+
+# Camera actuator
 vendor/lib/libactuator_a3907.so
 vendor/lib/libactuator_a3907_camcorder.so
 vendor/lib/libactuator_a3907_camera.so
@@ -148,7 +154,9 @@ vendor/lib/libactuator_ov8825_camera.so
 vendor/lib/libactuator_rohm_bu64243gwz.so
 vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so
 vendor/lib/libactuator_rohm_bu64243gwz_camera.so
-vendor/lib/libchromaflash.so
+
+# Camera actuator
+# vendor/lib/libchromaflash.so
 vendor/lib/libchromatix_S5K4E1_13P1BA_common.so
 vendor/lib/libchromatix_S5K4E1_13P1BA_default_video.so
 vendor/lib/libchromatix_S5K4E1_13P1BA_hfr_120fps.so
@@ -311,21 +319,9 @@ vendor/lib/libchromatix_skuf_ov5648_p5v23c_common.so
 vendor/lib/libchromatix_skuf_ov5648_p5v23c_default_video.so
 vendor/lib/libchromatix_skuf_ov5648_p5v23c_preview.so
 vendor/lib/libchromatix_skuf_ov5648_p5v23c_snapshot.so
-vendor/lib/libmm-qcamera.so
-vendor/lib/libmmcamera2_c2d_module.so
-vendor/lib/libmmcamera2_cpp_module.so
-vendor/lib/libmmcamera2_frame_algorithm.so
-vendor/lib/libmmcamera2_iface_modules.so
-vendor/lib/libmmcamera2_imglib_modules.so
-vendor/lib/libmmcamera2_is.so
-vendor/lib/libmmcamera2_isp_modules.so
-vendor/lib/libmmcamera2_pproc_modules.so
-vendor/lib/libmmcamera2_q3a_core.so
-vendor/lib/libmmcamera2_sensor_modules.so
-vendor/lib/libmmcamera2_stats_algorithm.so
-vendor/lib/libmmcamera2_stats_modules.so
-vendor/lib/libmmcamera2_vpe_module.so
-vendor/lib/libmmcamera2_wnr_module.so
+
+# Camera sensors
+# vendor/lib/libmm-qcamera.so
 vendor/lib/libmmcamera_S5K4E1_13P1BA.so
 vendor/lib/libmmcamera_SKUAA_ST_gc0339.so
 vendor/lib/libmmcamera_SKUAB_ST_s5k4e1.so
@@ -382,13 +378,6 @@ vendor/lib/libmmcamera_truly_cm7700_eeprom.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_ubifocus_lib.so
 vendor/lib/libmmcamera_wavelet_lib.so
-vendor/lib/libmmjpeg_interface.so
-vendor/lib/liboemcamera.so
-vendor/lib/liboptizoom.so
-###vendor/lib/libqdMetaData.so
-vendor/lib/libqomx_core.so
-####vendor/lib/libqservice.so
-vendor/lib/libubifocus.so
 
 # CAS
 ##vendor/bin/hw/android.hardware.cas@1.0-service
@@ -396,17 +385,17 @@ vendor/lib/libubifocus.so
 
 # CDSP
 #vendor/lib/libcdsprpc.so
-#vendor/lib/libfastcvopt.so
+vendor/lib/libfastcvopt.so
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml
 etc/cne/Nexus/VZW/VZW_profiles.xml
-#lib/com.quicinc.cne.api@1.0.so
-#lib/com.quicinc.cne.api@1.1.so
-#lib/com.quicinc.cne.constants@1.0.so
-#lib/com.quicinc.cne.constants@2.0.so
-#lib/com.quicinc.cne.constants@2.1.so
+lib/com.quicinc.cne.api@1.0.so
+lib/com.quicinc.cne.api@1.1.so
+lib/com.quicinc.cne.constants@1.0.so
+lib/com.quicinc.cne.constants@2.0.so
+lib/com.quicinc.cne.constants@2.1.so
 #lib/com.quicinc.cne.server@1.0.so
 #lib/com.quicinc.cne.server@2.0.so
 #lib/com.quicinc.cne.server@2.1.so
@@ -474,62 +463,27 @@ vendor/lib/libqmiservices.so
 
 # Display
 lib/egl/libGLES_android.so
-lib/vendor.display.color@1.0.so
-lib/vendor.display.color@1.1.so
-lib/vendor.display.color@1.2.so
-lib/vendor.display.color@1.3.so
-lib/vendor.display.config@1.0.so
-lib/vendor.display.config@1.1.so
-lib/vendor.display.config@1.2.so
-lib/vendor.display.config@1.3.so
-lib/vendor.display.config@1.4.so
-lib/vendor.display.config@1.5.so
-lib/vendor.display.config@1.6.so
-lib/vendor.display.config@1.7.so
-lib/vendor.display.config@1.8.so
-lib/vendor.display.postproc@1.0.so
-lib/vendor.qti.hardware.qdutils_disp@1.0.so
-###vendor/bin/hw/android.hardware.graphics.allocator@2.0-service
-###vendor/bin/hw/android.hardware.graphics.composer@2.1-service
-###vendor/bin/hw/android.hardware.memtrack@1.0-service
-###vendor/bin/hw/vendor.display.color@1.0-service
-###vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
-###vendor/etc/init/android.hardware.graphics.allocator@2.0-service.rc
-###vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
-###vendor/etc/init/android.hardware.memtrack@1.0-service.rc
-###vendor/etc/init/vendor.display.color@1.0-service.rc
-###vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
-###vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libQTapGLES.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
-###vendor/lib/hw/android.hardware.graphics.allocator@2.0-impl.so
-###vendor/lib/hw/android.hardware.graphics.composer@2.1-impl.so
-###vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so
-###vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
-###vendor/lib/hw/gralloc.default.so
-###vendor/lib/hw/gralloc.msm8909.so
-###vendor/lib/hw/hwcomposer.msm8909.so
-###vendor/lib/hw/memtrack.msm8909.so
 vendor/lib/libadreno_utils.so
-vendor/lib/libdrmutils.so
-vendor/lib/libgpu_tonemapper.so
-vendor/lib/libgrallocutils.so
+#vendor/lib/libdrmutils.so
+#vendor/lib/libgpu_tonemapper.so
+#vendor/lib/libgrallocutils.so
 vendor/lib/libgsl.so
-#vendor/lib/libhwc2onfbadapter.so
-#vendor/lib/libllvm-glnext.so
+vendor/lib/libllvm-glnext.so
 #vendor/lib/libqdutils.so
 #vendor/lib/libsdedrm.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
 vendor/lib/libsdm-disp-vndapis.so
-vendor/lib/libsdmcore.so
+#vendor/lib/libsdmcore.so
 vendor/lib/libsdmextension.so
-vendor/lib/libsdmutils.so
-###vendor/lib/libtinyxml2_1.so
+#vendor/lib/libsdmutils.so
 
 # Display firmware
 vendor/firmware/a225_pfp.fw
@@ -623,7 +577,7 @@ vendor/lib/liblocation_api.so
 vendor/lib/liblocationservice.so
 vendor/lib/liblocationservice_glue.so
 vendor/lib/liblowi_client.so
-###vendor/lib/libperipheral_client.so
+vendor/lib/libperipheral_client.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 ####vendor/lib/libsensorndkbridge.so
@@ -713,14 +667,14 @@ vendor/etc/media_profiles_vendor.xml
 
 # Perf
 ##lib/vendor.qti.hardware.perf@1.0.so
-vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
-vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+#vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
+#vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 ##vendor/etc/perf/commonresourceconfigs.xml
-vendor/etc/perf/perfboostsconfig.xml
+#vendor/etc/perf/perfboostsconfig.xml
 ##vendor/etc/perf/targetconfig.xml
 ##vendor/etc/perf/targetresourceconfigs.xml
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd-client.so
+#vendor/lib/libperfgluelayer.so
+#vendor/lib/libqti-perfd-client.so
 
 # Perf IOP
 lib/vendor.qti.hardware.iop@1.0.so
@@ -737,7 +691,7 @@ vendor/lib/libqti-util.so
 ####vendor/lib/hw/power.qcom.so
 
 # Radio
-##app/QtiTelephonyService/QtiTelephonyService.apk
+-app/QtiTelephonyService/QtiTelephonyService.apk
 ##lib/vendor.qti.hardware.radio.am@1.0.so
 ##lib/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 ##lib/vendor.qti.hardware.radio.lpa@1.0.so
@@ -751,24 +705,25 @@ vendor/lib/libqti-util.so
 ##lib/vendor.qti.hardware.radio.uim@1.1.so
 ##lib/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 ##lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
-####priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 ##vendor/bin/hw/qcrild
 ##vendor/bin/hw/rild
-##vendor/bin/ATFWD-daemon
-##vendor/bin/netmgrd
-##vendor/bin/port-bridge
-##vendor/bin/qrtr-cfg
-##vendor/bin/qrtr-lookup
-##vendor/bin/qrtr-ns
-##vendor/bin/qti
-##vendor/bin/rmt_storage
+vendor/bin/ATFWD-daemon
+vendor/bin/netmgrd
+vendor/bin/port-bridge
+vendor/bin/qrtr-cfg
+vendor/bin/qrtr-lookup
+vendor/bin/qrtr-ns
+vendor/bin/qti
+vendor/bin/rmt_storage
 ##vendor/bin/ssgtzd
 ##vendor/bin/tftp_server
 ##vendor/etc/init/qcrild.rc
 ##vendor/etc/init/rild.legacy.rc
 ##vendor/etc/init/vendor.rild.legacy.rc
-##vendor/lib/libconfigdb.so
-##vendor/lib/libdsi_netctrl.so
+vendor/lib/libconfigdb.so
+vendor/lib/libdsi_netctrl.so
 ##vendor/lib/liblqe.so
 ##vendor/lib/libminksocket.so
 ##vendor/lib/libnetmgr.so
@@ -776,15 +731,15 @@ vendor/lib/libqti-util.so
 ##vendor/lib/libnlnetmgr.so
 ##vendor/lib/libqcmaputils.so
 ##vendor/lib/libqcrilFramework.so
-##vendor/lib/libqdi.so
-##vendor/lib/libqdp.so
-##vendor/lib/libqmi.so
-##vendor/lib/libqrtr.so
-##vendor/lib/libqsocket.so
+vendor/lib/libqdi.so
+vendor/lib/libqdp.so
+vendor/lib/libqmi.so
+vendor/lib/libqrtr.so
+vendor/lib/libqsocket.so
 ##vendor/lib/libril-qc-hal-qmi.so
 ##vendor/lib/libril-qc-ltedirectdisc.so
 ##vendor/lib/libril-qc-radioconfig.so
-##vendor/lib/libril-qcril-hook-oem.so
+vendor/lib/libril-qcril-hook-oem.so
 ##vendor/lib/librilqmiservices.so
 ##vendor/lib/librmnetctl.so
 ##vendor/lib/libsettings.so
@@ -808,6 +763,7 @@ vendor/lib/libqti-util.so
 ##lib/lib-imsvt.so
 ##lib/lib-imsvtextutils.so
 ##lib/lib-imsvtutils.so
+#vendor/lib/libqdMetaData.so
 ##lib/libqdMetaData.system.so
 ##lib/librcc.so
 ##lib/vendor.qti.hardware.radio.ims@1.0.so
@@ -818,7 +774,7 @@ vendor/lib/libqti-util.so
 ##lib/vendor.qti.ims.callinfo@1.0.so
 ##lib/vendor.qti.ims.rcsconfig@1.0.so
 ##lib/vendor.qti.imsrtpservice@1.0.so
-##priv-app/ims/ims.apk
+-priv-app/ims/ims.apk
 ##vendor/bin/ims_rtp_daemon
 ##vendor/bin/imsdatadaemon
 ##vendor/bin/imsqmidaemon
@@ -879,7 +835,7 @@ vendor/lib/libthermalioctl.so
 vendor/etc/thermal-engine.conf
 
 # Time services
-##vendor/app/TimeService/TimeService.apk
+-vendor/app/TimeService/TimeService.apk
 ##vendor/bin/time_daemon
 ##vendor/etc/init/init.time_daemon.rc
 ##vendor/lib/libtime_genoff.so
@@ -939,12 +895,12 @@ vendor/etc/wifi/WCNSS_qcom_cfg.ini
 ####vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Miscellaneous
-####vendor/app/ConnectionSecurityService/ConnectionSecurityService.apk
-####vendor/app/QDMA-UI/QDMA-UI.apk
-####vendor/app/QDMA/QDMA.apk
-####vendor/app/QSensorTest/QSensorTest.apk
-####vendor/app/SSGTelemetryService/SSGTelemetryService.apk
-####vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
+-vendor/app/ConnectionSecurityService/ConnectionSecurityService.apk
+-vendor/app/QDMA-UI/QDMA-UI.apk
+-vendor/app/QDMA/QDMA.apk
+-vendor/app/QSensorTest/QSensorTest.apk
+-vendor/app/SSGTelemetryService/SSGTelemetryService.apk
+-vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
 vendor/bin/qmi-framework-tests/qmi_test_mt_client_init_instance
 vendor/bin/qmi-framework-tests/qmi_test_service_clnt_test_0000
 vendor/bin/qmi-framework-tests/qmi_test_service_clnt_test_0001
