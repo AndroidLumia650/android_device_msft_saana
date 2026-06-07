@@ -9,7 +9,7 @@
 set -e
 
 DEVICE=saana
-VENDOR=msft
+VENDOR=mmo
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

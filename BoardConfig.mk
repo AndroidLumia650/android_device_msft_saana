@@ -4,19 +4,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/msft/saana
+DEVICE_PATH := device/mmo/saana
 
 # Screen density
 TARGET_SCREEN_DENSITY := 320
-
-
 
 # Hax/Workarounds
 #BUILD_BROKEN_DUP_RULES := true
 #BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 #BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 #RELAX_USES_LIBRARY_CHECK := true
-#BOARD_SUPPRESS_SECURE_ERASE := true
 
 
 TARGET_USES_64_BIT_BINDER := true
@@ -30,8 +27,10 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a7
 FORCE_32_BIT := true
 
+TARGET_USES_AOSP := true
+
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-smd"
 
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
@@ -59,14 +58,14 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_CONFIG := saana-perf_defconfig
-TARGET_KERNEL_SOURCE := kernel/msft/saana
+TARGET_KERNEL_CONFIG := msm8909-perf_defconfig
+TARGET_KERNEL_SOURCE := kernel/mmo/saana
 
 # Kernel - prebuilt
-#TARGET_FORCE_PREBUILT_KERNEL := true
-#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-#endif
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+endif
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -103,22 +102,27 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-
-
+BOARD_SUPPRESS_SECURE_ERASE := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 # Display
+
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
-
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-
-OVERRIDE_RS_DRIVER := librs_adreno.so
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
-TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
-TARGET_USES_ION := true
-TARGET_USES_NEW_ION_API := true
-USE_OPENGL_RENDERER := true
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
+SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_USE_COMPAT_GRALLOC_PERFORM := true
+# To fix the bad UI lag we are experiencing.
+TARGET_DISABLE_POSTRENDER_CLEANUP := true
+
+# Enable memfd - needed otherwise you get crashes like Jit thread pool  >>> system_server <<<
+TARGET_HAS_MEMFD_BACKPORT := true
 
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
@@ -148,6 +152,7 @@ VENDOR_SECURITY_PATCH := 2018-08-05
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
 # Inherit the proprietary files
-include vendor/msft/saana/BoardConfigVendor.mk
+include vendor/mmo/saana/BoardConfigVendor.mk

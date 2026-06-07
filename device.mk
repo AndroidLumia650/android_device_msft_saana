@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 27
 #PRODUCT_FULL_TREBLE_OVERRIDE := false
@@ -355,4 +359,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/msft/saana/saana-vendor.mk)
+$(call inherit-product, vendor/mmo/saana/saana-vendor.mk)
