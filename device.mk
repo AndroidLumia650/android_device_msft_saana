@@ -10,7 +10,8 @@ TARGET_SCREEN_WIDTH := 720
 
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 27
-#PRODUCT_FULL_TREBLE_OVERRIDE := false
+PRODUCT_FULL_TREBLE_OVERRIDE := false
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -70,13 +71,12 @@ PRODUCT_PACKAGES += \
     init.qcom.test.rc \
     init.qcom.usb.rc \
     init.target.rc \
-    init.recovery.qcom.rc \
-    ueventd.qcom.rc
+    init.recovery.qcom.rc
 
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_ROOT)/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
@@ -137,22 +137,26 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     com.qualcomm.qti.bluetooth_audio@1.0.vendor
 
-# Display
+# Display/Gralloc
 PRODUCT_PACKAGES += \
-    copybit.msm8909 \
     gralloc.msm8909 \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
     android.frameworks.displayservice@1.0.vendor \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl-service \
     hwcomposer.msm8909 \
     libgenlock \
     memtrack.msm8909 \
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    android.hardware.configstore@1.0-service \
+
 
 PRODUCT_PACKAGES += \
     libdisplayconfig \
@@ -184,17 +188,12 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
 # GPS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service
-
-PRODUCT_PACKAGES += \
-    gps.msm8909
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-service
+#PRODUCT_PACKAGES += \
+#    android.hardware.gnss@1.0-impl \
+#    android.hardware.gnss@1.0-service
+#
+#PRODUCT_PACKAGES += \
+#    gps.msm8909
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -270,6 +269,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service \
+    android.hardware.power@1.0-impl
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
@@ -317,6 +321,10 @@ PRODUCT_PACKAGES += \
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
+
+
+PRODUCT_PACKAGES += \
+    vndk-sp \
 
 # Qualcomm
 PRODUCT_PACKAGES += \

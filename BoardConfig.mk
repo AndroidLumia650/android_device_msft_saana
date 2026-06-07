@@ -17,7 +17,8 @@ TARGET_SCREEN_DENSITY := 320
 
 
 TARGET_USES_64_BIT_BINDER := true
-#TARGET_USES_VNDK := true
+
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -58,7 +59,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_CONFIG := msm8909-perf_defconfig
+TARGET_KERNEL_CONFIG := lineageos_saana_defconfig
 TARGET_KERNEL_SOURCE := kernel/mmo/saana
 
 # Kernel - prebuilt
@@ -103,15 +104,16 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-# Display
 
-TARGET_USES_ION := true
+# Display
 USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG := $(DEVICE_PATH)/configs/egl.cfg
+TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+TARGET_USES_HWC2 := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
@@ -120,9 +122,18 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USE_COMPAT_GRALLOC_PERFORM := true
 # To fix the bad UI lag we are experiencing.
 TARGET_DISABLE_POSTRENDER_CLEANUP := true
+GET_FRAMEBUFFER_FORMAT_FROM_HWC := false
+
 
 # Enable memfd - needed otherwise you get crashes like Jit thread pool  >>> system_server <<<
 TARGET_HAS_MEMFD_BACKPORT := true
+
+MALLOC_SVELTE := true
+
+# Enable sensor multi HAL
+USE_SENSOR_MULTI_HAL := true
+
+WITH_DEXPREOPT := true
 
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk

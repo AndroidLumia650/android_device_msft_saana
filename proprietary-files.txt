@@ -445,11 +445,11 @@ vendor/lib/libcneapiclient.so
 vendor/lib/libdiag.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
-vendor/lib/libmdmdetect.so
+-vendor/lib/libmdmdetect.so
 vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmi_encdec.so
-vendor/lib/libqmiservices.so
+-vendor/lib/libqmi_client_qmux.so
+-vendor/lib/libqmi_encdec.so
+-vendor/lib/libqmiservices.so
 #vendor/lib/libwpa_client.so
 
 # Configstore
@@ -554,13 +554,13 @@ lib/vendor.qti.gnss@1.1.so
 lib/vendor.qti.gnss@1.2.so
 lib/vendor.qti.gnss@2.0.so
 lib/vendor.qti.gnss@2.1.so
-vendor/bin/hw/vendor.qti.gnss@1.0-service
+#vendor/bin/hw/vendor.qti.gnss@1.0-service
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/slim_daemon
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
-vendor/etc/init/vendor.qti.gnss@1.0-service.rc
+#vendor/etc/init/vendor.qti.gnss@1.0-service.rc
 vendor/lib/hw/vendor.qti.gnss@1.0-impl.so
 vendor/lib/libDRPlugin.so
 vendor/lib/libdataitems.so
@@ -736,7 +736,7 @@ vendor/lib/libdsi_netctrl.so
 ##vendor/lib/libqcrilFramework.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
-vendor/lib/libqmi.so
+-vendor/lib/libqmi.so
 vendor/lib/libqrtr.so
 vendor/lib/libqsocket.so
 ##vendor/lib/libril-qc-hal-qmi.so
@@ -1095,7 +1095,7 @@ vendor/lib/libpvr.so
 vendor/lib/libqahw.so
 vendor/lib/libqahwwrapper.so
 vendor/lib/libqcbor.so
-vendor/lib/libqcci_legacy.so
+-vendor/lib/libqcci_legacy.so
 vendor/lib/libqdma.so
 vendor/lib/libqisl.so
 vendor/lib/libqmi_csvt_srvc.so

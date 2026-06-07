@@ -31,3 +31,4 @@
 /dev/block/platform/soc/7824900.sdhci/by-name/vendor_[ab]		u:object_r:system_block_device:s0
 /dev/block/platform/soc/7824900.sdhci/by-name/cmnlib64_[ab]		u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/7824900.sdhci/by-name/keymaster_[ab]		u:object_r:custom_ab_block_device:s0
+/dev/kgsl-3d0                                   u:object_r:gpu_device:s0
