@@ -10,7 +10,6 @@ TARGET_SCREEN_WIDTH := 720
 
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 27
-PRODUCT_FULL_TREBLE_OVERRIDE := false
 
 # Health
 PRODUCT_PACKAGES += \
@@ -76,7 +75,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_ROOT)/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
@@ -137,33 +136,28 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     com.qualcomm.qti.bluetooth_audio@1.0.vendor
 
-# Display/Gralloc
-PRODUCT_PACKAGES += \
-    gralloc.msm8909 \
-    android.frameworks.displayservice@1.0.vendor \
-    hwcomposer.msm8909 \
-    libgenlock \
-    memtrack.msm8909 \
-
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
-    android.hardware.configstore@1.0-service \
-
-
-PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-impl \
+    vendor.display.color@1.0-service \
+    vendor.display.config@1.1 \
+    vendor.display.config@1.1_vendor \
+    copybit.msm8909 \
+    gralloc.msm8909 \
+    hwcomposer.msm8909 \
+    memtrack.msm8909 \
     libdisplayconfig \
+    libhwc2on1adapter \
+    libgenlock \
     liboverlay \
     libtinyxml \
-    libxml2 \
-    vendor.display.config@1.0.vendor
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -298,14 +292,14 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
 
 # Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service \
-    thermal.msm8909
+#PRODUCT_PACKAGES += \
+#    android.hardware.thermal@1.0-impl \
+#    android.hardware.thermal@1.0-service \
+#    thermal.msm8909
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
-
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+#
 # Compat symbols
 PRODUCT_PACKAGES += \
     libshim_cutils
