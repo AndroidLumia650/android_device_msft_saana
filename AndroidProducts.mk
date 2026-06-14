@@ -7,7 +7,3 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_saana.mk
 
-COMMON_LUNCH_CHOICES := \
-    lineage_saana-user \
-    lineage_saana-userdebug \
-    lineage_saana-eng

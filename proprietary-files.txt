@@ -884,7 +884,7 @@ vendor/etc/thermal-engine.conf
 ###vendor/lib/libkeystore-engine-wifi-hidl.so
 ###vendor/lib/libkeystore-wifi-hidl.so
 ###vendor/lib/libqsap_sdk.so
-###vendor/lib/libwifi-hal-qcom.so
+-vendor/lib/libwifi-hal-qcom.so
 ###vendor/lib/libwifi-hal.so
 
 # Wi-Fi configs
@@ -913,7 +913,6 @@ vendor/bin/qmi-framework-tests/qmi_test_service_clnt_test_1001
 vendor/bin/qmi-framework-tests/qmi_test_service_clnt_test_2000
 vendor/bin/qmi-framework-tests/qmi_test_service_test
 vendor/bin/DR_AP_Service
-vendor/bin/KmInstallKeybox
 vendor/bin/PktRspTest
 ###vendor/bin/SoterProvisioningTool
 vendor/bin/athdiag
