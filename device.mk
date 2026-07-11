@@ -86,6 +86,11 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -103,12 +108,8 @@ PRODUCT_PACKAGES += \
     libvolumelistener
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0 \
     android.hardware.audio@4.0-impl \
-    android.hardware.audio.common@4.0 \
-    android.hardware.audio.common@4.0-util \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@4.0 \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.soundtrigger@2.0-impl \
 
@@ -136,19 +137,28 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     com.qualcomm.qti.bluetooth_audio@1.0.vendor
 
+# Configstore
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.1-service
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+
+PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-impl \
+    vendor.display.color@1.0-service \
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    vendor.display.color@1.0-impl \
-    vendor.display.color@1.0-service \
-    vendor.display.config@1.1 \
-    vendor.display.config@1.1_vendor \
+    vendor.display.config@1.0 \
     copybit.msm8909 \
     gralloc.msm8909 \
     hwcomposer.msm8909 \
@@ -158,6 +168,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libtinyxml \
+    libxml2
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -221,10 +232,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service
-
 # Linker
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -286,10 +293,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
 
 # Thermal
 #PRODUCT_PACKAGES += \
