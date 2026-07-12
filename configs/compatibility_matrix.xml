@@ -164,10 +164,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>android.hardware.ir</name>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>android.hardware.keymaster</name>
         <version>3.0</version>
         <interface>
