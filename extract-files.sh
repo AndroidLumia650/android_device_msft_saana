@@ -53,6 +53,35 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+    # Provide shim for libdpmframework.so
+    lib/libdpmframework.so)
+        for  LIBCUTILS_SHIM in $(grep -L "libcutils_shim.so" "${2}"); do
+            "${PATCHELF}" --add-needed "libcutils_shim.so" "$LIBCUTILS_SHIM"
+        done
+        ;;
+    # Patch blobs for VNDK
+    vendor/lib/libmmcamera2_stats_modules.so)
+        "${PATCHELF}" --remove-needed "libgui.so" "${2}"
+        sed -i "s|/data/misc/camera|/data/vendor/qcam|g" "${2}"
+        sed -i "s|libandroid.so|libcamshim.so|g" "${2}"
+        ;;
+
+    # Patch blobs for VNDK
+    vendor/lib/lib-dplmedia.so)
+        "${PATCHELF}" --remove-needed "libmedia.so" "${2}"
+        ;;
+
+    # Add shim for libbase LogMessage functions
+    vendor/bin/imsrcsd | vendor/lib/lib-uceservice.so)
+        for  LIBBASE_SHIM in $(grep -L "libbase_shim.so" "${2}"); do
+            "${PATCHELF}" --add-needed "libbase_shim.so" "$LIBBASE_SHIM"
+        done
+        ;;
+
+    esac
+}
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
