@@ -119,6 +119,15 @@
         <fqname>@1.0::IVibrator/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>com.qualcomm.qti.dpm.api</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IdpmQmi</name>
+            <instance>dpmQmiService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IWifi/default</fqname>
@@ -136,7 +145,7 @@
     <hal format="hidl">
         <name>vendor.display.config</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IDisplayConfig/default</fqname>
+        <fqname>@1.1::IDisplayConfig/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.display.postproc</name>
